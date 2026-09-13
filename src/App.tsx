@@ -6,30 +6,19 @@ const RNLI_LOGO =
 const FACEBOOK_URL = "https://www.facebook.com/EnnisRNLI";
 
 const upcomingEvents = [
-  {
+   {
     id: 1,
-    title: "RNLI Collection Day",
-    date: "Sat, 4 Oct 2026",
-    time: "10:00am – 4:00pm",
-    location: "Ennis Town Centre",
-    description:
-      "Join our volunteers collecting in the town. Every euro helps fund the RNLI's lifesaving work around Ireland's coastline.",
-    icon: "🪣",
-    highlight: true,
-  },
-  {
-    id: 2,
-    title: "Halloween Quiz Night",
-    date: "Fri, 30 Oct 2026",
-    time: "7:30pm",
-    location: "The Old Ground Hotel, Ennis",
+    title: "Oct",
+    date: "Fri, 23 Oct 2026",
+    time: "7.00pm",
+    location: "The Good House, Inagh",
     description:
       "Teams of up to 6. Great prizes, a raffle, and plenty of craic. Tickets available on the door or contact us on Facebook.",
     icon: "🎃",
     highlight: false,
   },
   {
-    id: 3,
+    id: 2,
     title: "Christmas Craft & Gift Fair",
     date: "Sat–Sun, 5–6 Dec 2026",
     time: "11:00am – 6:00pm",
@@ -40,7 +29,7 @@ const upcomingEvents = [
     highlight: false,
   },
   {
-    id: 4,
+    id: 3,
     title: "New Year's Day Swim",
     date: "Fri, 1 Jan 2027",
     time: "12:00 noon",
@@ -50,6 +39,17 @@ const upcomingEvents = [
     icon: "🌊",
     highlight: false,
   },
+   {
+    id: 4,
+    title: "RNLI Collection Day",
+    date: "May 2027",
+    time: "9:00am – 5.00pm",
+    location: "Ennis Town",
+    description:
+      "Join our volunteers collecting in the town. Every euro helps fund the RNLI's lifesaving work around Ireland's coastline.",
+    icon: "🪣",
+    highlight: true,
+  }
 ];
 
 const galleryImages = [
@@ -245,7 +245,7 @@ function Hero() {
             className="inline-block w-2 h-2 rounded-full animate-pulse"
             style={{ backgroundColor: "#e05a10" }}
           />
-          Clare, Ireland
+          Ennis, Co. Clare, Ireland
         </span>
 
         <h1
@@ -316,10 +316,10 @@ function Hero() {
 
 function StatBar() {
   const stats = [
-    { label: "Volunteers", value: "40+" },
-    { label: "Events per Year", value: "12+" },
-    { label: "Years Fundraising", value: "30+" },
-    { label: "Lives Saved by RNLI", value: "143,000+" },
+    { label: "Years Saving Lives", value: "200+" },
+    { label: "Lifeboat Stations", value: "238" },
+    { label: "Lifeboat Lanuches in 2025", value: "9,058" },
+    { label: "Lives Saved in 2025", value: "272" },
   ];
 
   return (
