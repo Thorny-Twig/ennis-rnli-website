@@ -8,12 +8,12 @@ const FACEBOOK_URL = "https://www.facebook.com/EnnisRNLI";
 const upcomingEvents = [
    {
     id: 1,
-    title: "Oct",
+    title: "Harvest Dance and Soiree",
     date: "Fri, 23 Oct 2026",
     time: "7.00pm",
     location: "The Good House, Inagh",
     description:
-      "Harvest Fest Evening, to 6. Great prizes, a raffle, and plenty of craic.",
+      "Two of the great Gaels of County Clare in sport, music, dance, storytelling and reaching out with kindness to communities, now reach out to keep the Lifeboats afloat. Pairc Howley and Kevin Keane and supporting musicians, singers, dancers and story tellers. There will be food, tae and sweet cake, bulls eyes, bottled stout, liquorice all sorts. Raffle for valuable prizes. No admission charge. People can donate what they can on the night.",
     icon: "🎃",
     highlight: true,
   },
@@ -24,7 +24,7 @@ const upcomingEvents = [
     time: "9:00am – 5.00pm",
     location: "Ennis Town",
     description:
-      "Join our volunteers collecting in the town of Ennis. Every euro helps fund the RNLI's lifesaving work around Ireland's coastline.",
+      "Join our volunteers collecting in the town of Ennis. Every euro helps fund the RNLI`s lifesaving work around Ireland`s coastline.",
     icon: "🪣",
     highlight: false,
   }
@@ -643,6 +643,7 @@ function GallerySection() {
 }
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer
       className="py-8"
@@ -690,7 +691,7 @@ function Footer() {
           className="mt-6 pt-6 text-center text-white/35 text-xs"
           style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
         >
-          Ennis RNLI Fundraising Branch © 2026 · Supporting the Royal National
+          Ennis RNLI Fundraising Branch © {currentYear} · Supporting the Royal National
           Lifeboat Institution
         </div>
       </div>
