@@ -13,42 +13,20 @@ const upcomingEvents = [
     time: "7.00pm",
     location: "The Good House, Inagh",
     description:
-      "Teams of up to 6. Great prizes, a raffle, and plenty of craic. Tickets available on the door or contact us on Facebook.",
+      "Harvest Fest Evening, to 6. Great prizes, a raffle, and plenty of craic.",
     icon: "🎃",
-    highlight: false,
-  },
-  {
-    id: 2,
-    title: "Christmas Craft & Gift Fair",
-    date: "Sat–Sun, 5–6 Dec 2026",
-    time: "11:00am – 6:00pm",
-    location: "Temple Gate Hotel, Ennis",
-    description:
-      "Browse local crafts and Christmas gifts while supporting the RNLI. Free entry. Santa visits on Sunday.",
-    icon: "🎄",
-    highlight: false,
-  },
-  {
-    id: 3,
-    title: "New Year's Day Swim",
-    date: "Fri, 1 Jan 2027",
-    time: "12:00 noon",
-    location: "Lahinch Beach, Co. Clare",
-    description:
-      "Start the year right! All are welcome to take the plunge. Sponsored swims and prizes for best fancy dress.",
-    icon: "🌊",
-    highlight: false,
+    highlight: true,
   },
    {
-    id: 4,
+    id: 2,
     title: "RNLI Collection Day",
     date: "May 2027",
     time: "9:00am – 5.00pm",
     location: "Ennis Town",
     description:
-      "Join our volunteers collecting in the town. Every euro helps fund the RNLI's lifesaving work around Ireland's coastline.",
+      "Join our volunteers collecting in the town of Ennis. Every euro helps fund the RNLI's lifesaving work around Ireland's coastline.",
     icon: "🪣",
-    highlight: true,
+    highlight: false,
   }
 ];
 
@@ -252,15 +230,16 @@ function Hero() {
           className="text-white text-5xl sm:text-6xl md:text-7xl leading-none mb-5"
           style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
         >
-          SAVING LIVES
+          SAVING LIVES AT SEA
           <br />
           <span style={{ color: "#e05a10" }}>CLOSE TO HOME</span>
         </h1>
 
         <p className="text-white/75 text-base sm:text-lg max-w-xl mb-8 leading-relaxed">
-          Ennis RNLI Fundraising Branch supports the world's leading
-          lifeboat charity. Every event, every raffle, every collection
-          goes towards saving lives at sea.
+          Ennis RNLI Fundraising Branch helps support the RNLI’s 
+          lifesaving work around the Irish coast. Through our events, 
+          raffles and collections, we raise vital funds to help keep 
+          RNLI lifeboats, crews and lifesaving services ready when they’re needed most.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
