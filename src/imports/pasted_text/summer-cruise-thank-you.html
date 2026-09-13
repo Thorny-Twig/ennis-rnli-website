@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=0e1a0a9a-3eac-450f-94b0-36f52ab9b20e
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=0e1a0a9a-3eac-450f-94b0-36f52ab9b20e">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ennis RNLI - Summer Cruise Thank You</title>
+
+  <!-- Bootstrap 5 CSS -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --rnli-navy: #002f6c;
+      --rnli-orange: #e05a10;
+      --rnli-orange-dark: #c44d0b;
+      --facebook-blue: #0866ff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+      background-color: #f4f6f8;
+      color: #343a40;
+    }
+
+    /* Faded RNLI Background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('https://rnli.org/-/media/rnli/images/home_inc_footer_2023/22540304_digital-assets_v2_hero-image-desktop-2720x1536-2-2.jpg?rev=99fafa8529764b7085f510c1df32ccc5&w=2720&h=1530&hash=656039F133A01D32C42E8EA968A58194');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.12;
+      filter: blur(2px);
+      z-index: -1;
+    }
+
+    /* Colours */
+    .bg-rnli-navy {
+      background-color: var(--rnli-navy) !important;
+    }
+
+    .text-rnli-navy {
+      color: var(--rnli-navy) !important;
+    }
+
+    .text-rnli-orange {
+      color: var(--rnli-orange) !important;
+    }
+
+    .border-rnli-orange {
+      border-color: var(--rnli-orange) !important;
+    }
+
+    /* Header */
+    .rnli-header {
+      background-color: var(--rnli-navy);
+      border-bottom: 5px solid var(--rnli-orange);
+    }
+
+    .logo-badge {
+      background: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rnli-header-logo {
+      height: 38px;
+      width: auto;
+    }
+
+    /* Main */
+    .thank-you-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Main Thank You Card */
+    .thank-you-card {
+      border: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 35px rgba(0, 47, 108, 0.14);
+    }
+
+    .thank-you-top {
+      background:
+        linear-gradient(135deg, rgba(0, 47, 108, 0.98), rgba(0, 47, 108, 0.90)),
+        url('https://rnli.org/-/media/rnli/images/home_inc_footer_2023/22540304_digital-assets_v2_hero-image-desktop-2720x1536-2-2.jpg?rev=99fafa8529764b7085f510c1df32ccc5&w=2720&h=1530&hash=656039F133A01D32C42E8EA968A58194');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 42px 30px 38px;
+      text-align: center;
+      position: relative;
+    }
+
+    .thank-you-top::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 5px;
+      background: var(--rnli-orange);
+    }
+
+    .thank-you-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: #fff;
+      color: var(--rnli-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.25rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+    }
+
+    .thank-you-top h2 {
+      font-size: clamp(1.9rem, 5vw, 2.7rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .thank-you-top .lead {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+
+    /* Main Card Content */
+    .thank-you-content {
+      padding: 30px;
+    }
+
+    .thank-you-content p {
+      line-height: 1.7;
+    }
+
+    .cruise-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(224, 90, 16, 0.10);
+      color: var(--rnli-orange);
+      border: 1px solid rgba(224, 90, 16, 0.25);
+      border-radius: 50px;
+      padding: 7px 14px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    /* Special Thanks */
+    .special-thanks {
+      background: #f8f9fa;
+      border-left: 4px solid var(--rnli-orange);
+      border-radius: 0 10px 10px 0;
+      padding: 18px 20px;
+      margin: 25px 0;
+    }
+
+    .special-thanks h3 {
+      font-size: 1rem;
+      color: var(--rnli-navy);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* Photo Upload Card */
+    .photo-card {
+      border: 2px solid rgba(0, 47, 108, 0.10);
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0, 47, 108, 0.08);
+    }
+
+    .photo-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(0, 47, 108, 0.08);
+      color: var(--rnli-navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 14px;
+    }
+
+    .btn-rnli-orange {
+      background-color: var(--rnli-orange);
+      color: #fff;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-rnli-orange:hover,
+    .btn-rnli-orange:focus {
+      background-color: var(--rnli-orange-dark);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn-facebook {
+      background-color: var(--facebook-blue);
+      color: #fff;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-facebook:hover,
+    .btn-facebook:focus {
+      background-color: #0751cc;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* See You Next Year */
+    .next-year {
+      text-align: center;
+      padding: 32px 20px 8px;
+    }
+
+    .next-year-icon {
+      color: var(--rnli-orange);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .next-year h3 {
+      color: var(--rnli-navy);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .next-year p {
+      color: #6c757d;
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(255, 255, 255, 0.88);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* Mobile */
+    @media (max-width: 575px) {
+
+      .rnli-header-logo {
+        height: 34px;
+      }
+
+      .thank-you-top {
+        padding: 34px 20px 32px;
+      }
+
+      .thank-you-icon {
+        width: 68px;
+        height: 68px;
+        font-size: 2rem;
+      }
+
+      .thank-you-content {
+        padding: 24px 20px;
+      }
+
+      .special-thanks {
+        padding: 16px;
+      }
+
+      .photo-card .card-body {
+        padding: 24px 18px;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- Header -->
+
+  <header class="rnli-header text-white py-3">
+    <div class="container d-flex align-items-center justify-content-center justify-content-sm-start gap-3">
+
+
+  <div class="logo-badge shadow-sm">
+    <img
+      src="https://rnli.org/-/media/rnli/logos/lifeboats_logo_2025_master.svg?rev=fc7ebec02c044accb002040f620434e6"
+      alt="RNLI lifeboats logo"
+      class="rnli-header-logo"
+    >
+  </div>
+
+  <div class="border-start border-white border-opacity-25 ps-3">
+    <h1 class="h5 text-uppercase fw-bold mb-0 lh-1">Ennis RNLI</h1>
+    <p class="small text-white-50 mb-0">Fundraising Branch</p>
+  </div>
+
+</div>
+
+
+  </header>
+
+  <!-- Main Content -->
+
+  <main class="container py-5">
+
+
+<div class="thank-you-wrap">
+
+  <!-- Main Thank You Card -->
+  <section class="thank-you-card mb-4">
+
+    <div class="thank-you-top">
+
+      <div class="thank-you-icon">
+        <i class="bi bi-heart-fill" aria-hidden="true"></i>
+      </div>
+
+      <h2>Thank You!</h2>
+
+      <p class="lead mb-0">
+        Thank you for joining us on the 2026 RNLI Summer Cruise.
+      </p>
+
+    </div>
+
+
+    <div class="thank-you-content">
+
+      <div class="text-center">
+        <div class="cruise-date">
+          <i class="bi bi-calendar-event" aria-hidden="true"></i>
+          Friday, 28 August 2026
+        </div>
+      </div>
+
+      <p class="text-center mb-4">
+        A huge thank you to everyone who came on board and helped make
+        our Summer Cruise such a fantastic evening. Your support means so
+        much to us and helps us continue supporting the incredible
+        lifesaving work of the <strong>RNLI</strong>.
+      </p>
+
+      <p class="text-center mb-4">
+        We hope you enjoyed the cruise as much as we did!
+      </p>
+
+
+      <!-- Special Thanks -->
+      <div class="special-thanks">
+
+        <h3>
+          <i class="bi bi-stars me-1" aria-hidden="true"></i>
+          A Special Thank You
+        </h3>
+
+        <p class="mb-0 text-secondary">
+          To the wonderful team at <strong>Doolin Ferry Co.</strong>,
+          our fantastic volunteers, our entertainers, and all the local
+          businesses who so generously supported the event.
+          We couldn't have done it without you.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Photos & Videos Card -->
+  <section class="photo-card mb-4">
+
+    <div class="card-body text-center p-4">
+
+      <div class="photo-icon">
+        <i class="bi bi-camera-fill" aria-hidden="true"></i>
+      </div>
+
+      <h2 class="h4 fw-bold text-rnli-navy mb-2">
+        Did You Take Any Photos or Videos?
+      </h2>
+
+      <p class="text-secondary mb-3">
+        We'd love to see the evening through your eyes!
+        If you captured any photos or videos while you were on board,
+        we'd really appreciate you sharing them with us.
+      </p>
+
+      <p class="small text-muted mb-4">
+        Simply use the button below to upload your photos and videos.
+        There's no need to send them individually.
+      </p>
+
+      <a
+        href="https://www.dropbox.com/request/cunirt33db9v3e6zvydz"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-rnli-orange btn-lg px-4 fw-bold shadow-sm"
+      >
+        <i class="bi bi-cloud-arrow-up-fill me-2" aria-hidden="true"></i>
+        Share Your Photos &amp; Videos
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Facebook Card -->
+  <section class="card border-0 shadow-sm rounded-4 mb-4 bg-white">
+
+    <div class="card-body text-center p-4">
+
+      <i class="bi bi-facebook text-primary fs-2 mb-2"></i>
+
+      <h2 class="h5 fw-bold text-rnli-navy">
+        Stay Connected
+      </h2>
+
+      <p class="text-secondary small mb-3">
+        More photos from the evening are coming soon,
+        so keep an eye on our Facebook page for updates.
+      </p>
+
+      <a
+        href="https://www.facebook.com/EnnisRNLI"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-facebook fw-bold px-4"
+      >
+        <i class="bi bi-facebook me-2" aria-hidden="true"></i>
+        Follow Ennis RNLI on Facebook
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Next Year -->
+  <section class="next-year">
+
+    <div class="next-year-icon">
+      <i class="bi bi-life-preserver" aria-hidden="true"></i>
+    </div>
+
+    <h3>We'll See You Again Next Year!</h3>
+
+    <p>
+      Thank you once again for your incredible support.
+      We look forward to welcoming you all back on board
+      for another RNLI Summer Cruise in 2027.
+    </p>
+
+  </section>
+
+</div>
+
+
+  </main>
+
+  <!-- Footer -->
+
+  <footer class="text-center py-3 text-muted small mt-auto">
+    <div class="container">
+      Ennis RNLI Fundraising Branch &copy; 2026
+    </div>
+  </footer>
+
+</body>
+</html>
