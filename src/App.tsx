@@ -230,7 +230,9 @@ function Hero() {
           className="text-white text-5xl sm:text-6xl md:text-7xl leading-none mb-5"
           style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
         >
-          SAVING LIVES AT SEA
+          SAVING LIVES
+          <br />
+          AT SEA
           <br />
           <span style={{ color: "#e05a10" }}>CLOSE TO HOME</span>
         </h1>
