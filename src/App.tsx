@@ -264,12 +264,27 @@ function Hero() {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className="w-4 h-4"
+              className="w-5 h-5 shrink-0"
             >
+              {/* Heart */}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5"
+                d="M12 6.5C10.8 4.4 7.8 3.5 6 5.4c-1.8 1.9-1.4 4.7.4 6.3L12 17l5.6-5.3c1.8-1.6 2.2-4.4.4-6.3-1.8-1.9-4.8-1-6 1.1Z"
+              />
+
+              {/* Hand */}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.5 12.5 7 9.8c.7-.5 1.6-.4 2.2.2l2.1 2.1c.5.5 1.3.5 1.8 0l1.1-1.1c.6-.6 1.5-.6 2.1 0l3.3 3.1c.7.7.7 1.8-.1 2.4l-3.8 3.1c-.8.6-1.7.9-2.7.9H7.5c-1.1 0-2.2-.5-2.9-1.4L3.5 17v-4.5Z"
+              />
+
+              {/* Wrist */}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.5 12.5H2.8a1 1 0 0 0-1 1v3.8a1 1 0 0 0 1 1h1.7"
               />
             </svg>
             Donate to Ennis RNLI
