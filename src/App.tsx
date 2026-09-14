@@ -87,7 +87,7 @@ function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-6">
-          {["Events", "Gallery", "Facebook"].map((item) =>
+          {["Events", "Gallery","Contact", "Facebook"].map((item) =>
             item === "Facebook" ? (
               <a
                 key={item}
@@ -169,6 +169,13 @@ function Header() {
             className="text-white/85 py-2 border-b border-white/10 text-sm font-medium"
           >
             Gallery
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+            className="text-white/85 py-2 border-b border-white/10 text-sm font-medium"
+          >
+            Contact
           </a>
           <a
             href={FACEBOOK_URL}
@@ -675,6 +682,291 @@ function GallerySection() {
   );
 }
 
+// ── ContactSection ────────────────────────────────────────────────────────────
+
+function ContactSection() {
+  const [values, setValues] = useState({ fullName: "", queryType: "", phone: "", email: "", message: "" });
+  const [touched, setTouched] = useState<TouchedMap>({ fullName: false, queryType: false, phone: false, email: false, message: false });
+  const [submitted, setSubmitted] = useState(false);
+
+  const errors: ErrorMap = {
+    fullName: validate("fullName", values.fullName),
+    queryType: values.queryType ? "" : "Please select a query type",
+    phone: validate("phone", values.phone),
+    email: validate("email", values.email),
+    message: validate("message", values.message),
+  };
+
+  const allValid = Object.values(errors).every((e) => e === "");
+
+  function handleChange(field: FieldName, value: string) {
+    setValues((v) => ({ ...v, [field]: value }));
+    // validate immediately once the field has been touched
+    if (touched[field]) {
+      // re-render triggers error recalculation automatically
+    }
+  }
+
+  function handleBlur(field: FieldName) {
+    setTouched((t) => ({ ...t, [field]: true }));
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    // Touch all fields to reveal any remaining errors
+    setTouched({ fullName: true, queryType: true, phone: true, email: true, message: true });
+    if (!allValid) return;
+    setSubmitted(true);
+  }
+
+  if (submitted) {
+    return (
+      <section id="contact" className="py-14 sm:py-16">
+        <div className="max-w-3xl mx-auto px-4">
+          <div
+            className="bg-white rounded-2xl p-10 text-center shadow-sm"
+            style={{ border: "1px solid #e2e8f0" }}
+          >
+            <div
+              className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5"
+              style={{ backgroundColor: "rgba(0,47,108,0.08)" }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#002f6c" className="w-8 h-8">
+                <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <h3
+              className="text-3xl mb-2"
+              style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#002f6c" }}
+            >
+              MESSAGE SENT!
+            </h3>
+            <p className="text-gray-500 text-sm max-w-sm mx-auto mb-6">
+              Thanks, <strong className="text-gray-700">{values.fullName.split(" ")[0]}</strong>! We've received your message and will be in touch soon.
+            </p>
+            <button
+              onClick={() => { setSubmitted(false); setValues({ fullName: "", queryType: "", phone: "", email: "", message: "" }); setTouched({ fullName: false, queryType: false, phone: false, email: false, message: false }); }}
+              className="text-sm font-semibold underline underline-offset-2"
+              style={{ color: "#e05a10" }}
+            >
+              Send another message
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const msgLen = values.message.length;
+  const msgCountColor = msgLen > 1000 ? "#ef4444" : msgLen >= 900 ? "#f59e0b" : "#9ca3af";
+
+  return (
+    <section id="contact" className="py-14 sm:py-16">
+      <div className="max-w-3xl mx-auto px-4">
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <p className="text-xs font-bold tracking-widest uppercase mb-2" style={{ color: "#e05a10" }}>
+            Get in Touch
+          </p>
+          <h2
+            className="text-4xl sm:text-5xl leading-none mb-3"
+            style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#002f6c" }}
+          >
+            CONTACT US
+          </h2>
+          <p className="text-gray-500 text-sm sm:text-base max-w-md mx-auto">
+            Have a question about an event, want to volunteer, or interested in sponsorship? We'd love to hear from you.
+          </p>
+        </div>
+
+        {/* Quick contact cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+          <a
+            href="mailto:ennisrnli@gmail.com"
+            className="group flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+            style={{ border: "1px solid #e2e8f0" }}
+          >
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl shrink-0" style={{ backgroundColor: "rgba(0,47,108,0.08)" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="#002f6c" className="w-5 h-5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </div>
+            <div className="min-w-0">
+              <p className="text-base leading-none mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 700, color: "#002f6c" }}>Email Us</p>
+              <p className="text-xs text-gray-500 mb-1.5">Event enquiries, sponsorship, general questions.</p>
+              <span className="text-xs font-semibold group-hover:underline underline-offset-2" style={{ color: "#e05a10" }}>ennisrnli@gmail.com</span>
+            </div>
+          </a>
+
+          <a
+            href="https://wa.me/353861234567"
+            target="_blank"
+            rel="noopener"
+            className="group flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
+            style={{ border: "1px solid #e2e8f0" }}
+          >
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl shrink-0" style={{ backgroundColor: "rgba(37,211,102,0.1)" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#25d366" className="w-5 h-5">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </div>
+            <div className="min-w-0">
+              <p className="text-base leading-none mb-1" style={{ fontFamily: "var(--font-display)", fontWeight: 700, color: "#002f6c" }}>WhatsApp</p>
+              <p className="text-xs text-gray-500 mb-1.5">Quick questions or chat with a member directly.</p>
+              <span className="text-xs font-semibold group-hover:underline underline-offset-2" style={{ color: "#25d366" }}>Message us on WhatsApp</span>
+            </div>
+          </a>
+        </div>
+
+        {/* Contact form */}
+        <div
+          className="bg-white rounded-2xl shadow-sm overflow-hidden"
+          style={{ border: "1px solid #e2e8f0" }}
+        >
+          <div className="px-6 py-4 flex items-center gap-2" style={{ borderBottom: "1px solid #f0f4f8", backgroundColor: "#fafbfc" }}>
+            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: "#e05a10" }} />
+            <p className="text-sm font-bold" style={{ fontFamily: "var(--font-display)", color: "#002f6c", letterSpacing: "0.04em" }}>
+              SEND US A MESSAGE
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} noValidate className="p-6 flex flex-col gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {/* Full Name */}
+              <FieldWrap id="fullName" label="Full Name" error={errors.fullName} touched={touched.fullName}>
+                <input
+                  id="fullName"
+                  type="text"
+                  autoComplete="name"
+                  placeholder="e.g. Aoife Murphy"
+                  value={values.fullName}
+                  onChange={(e) => handleChange("fullName", e.target.value)}
+                  onBlur={() => handleBlur("fullName")}
+                  className={`${inputBase} ${inputStyle(touched.fullName, errors.fullName)}`}
+                />
+              </FieldWrap>
+
+              {/* Query Type */}
+              <FieldWrap id="queryType" label="What is your query?" error={errors.queryType} touched={touched.queryType}>
+                <select
+                  id="queryType"
+                  value={values.queryType}
+                  onChange={(e) => handleChange("queryType", e.target.value)}
+                  onBlur={() => handleBlur("queryType")}
+                  className={`${inputBase} appearance-none cursor-pointer ${inputStyle(touched.queryType, errors.queryType)}`}
+                  style={{ color: values.queryType ? "#1a202c" : "#9ca3af" }}
+                >
+                  <option value="" disabled>Please Select</option>
+                  {QUERY_OPTIONS.map((opt) => (
+                    <option key={opt} value={opt} style={{ color: "#1a202c" }}>{opt}</option>
+                  ))}
+                </select>
+              </FieldWrap>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {/* Phone */}
+              <FieldWrap id="phone" label="Contact Number" error={errors.phone} touched={touched.phone}>
+                <input
+                  id="phone"
+                  type="tel"
+                  autoComplete="tel"
+                  placeholder="e.g. 086 123 4567"
+                  value={values.phone}
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                  onBlur={() => handleBlur("phone")}
+                  className={`${inputBase} ${inputStyle(touched.phone, errors.phone)}`}
+                />
+              </FieldWrap>
+
+              {/* Email */}
+              <FieldWrap id="email" label="Email Address" error={errors.email} touched={touched.email}>
+                <input
+                  id="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="e.g. aoife@example.com"
+                  value={values.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  onBlur={() => handleBlur("email")}
+                  className={`${inputBase} ${inputStyle(touched.email, errors.email)}`}
+                />
+              </FieldWrap>
+            </div>
+
+            {/* Message */}
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center justify-between">
+                <label htmlFor="message" className="text-sm font-semibold" style={{ color: "#002f6c" }}>
+                  Message
+                </label>
+                <span className="text-xs font-mono tabular-nums" style={{ color: msgCountColor }}>
+                  {msgLen}/1000
+                </span>
+              </div>
+              <div className="relative">
+                <textarea
+                  id="message"
+                  rows={5}
+                  placeholder="Tell us what's on your mind… (minimum 20 characters)"
+                  value={values.message}
+                  onChange={(e) => handleChange("message", e.target.value)}
+                  onBlur={() => handleBlur("message")}
+                  maxLength={1000}
+                  className={`${inputBase} resize-none pr-4 ${inputStyle(touched.message, errors.message)}`}
+                  style={{ paddingRight: "1rem" }}
+                />
+                {touched.message && (
+                  <span className="absolute right-3 top-3 pointer-events-none">
+                    {!errors.message ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#22c55e" className="w-5 h-5">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="#ef4444" className="w-5 h-5">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-5a.75.75 0 01.75.75v4.5a.75.75 0 01-1.5 0v-4.5A.75.75 0 0110 5zm0 10a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </span>
+                )}
+              </div>
+              <div
+                className="text-xs font-medium transition-all duration-150"
+                style={{
+                  minHeight: "1.2em",
+                  color: touched.message && errors.message ? "#ef4444" : touched.message && !errors.message ? "#22c55e" : "transparent",
+                }}
+                aria-live="polite"
+              >
+                {touched.message && errors.message ? errors.message : touched.message && !errors.message ? "Looks good" : "placeholder"}
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              style={{ backgroundColor: "#002f6c" }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+              </svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <p className="text-center text-xs text-gray-400 mt-5">
+          You can also reach us via{" "}
+          <a href={FACEBOOK_URL} target="_blank" rel="noopener" className="font-semibold underline underline-offset-2" style={{ color: "#0866ff" }}>
+            Facebook Messenger
+          </a>
+          .
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const currentYear = new Date().getFullYear();
   return (
@@ -742,6 +1034,7 @@ export default function App() {
         <EventsSection />
         <FacebookBanner />
         <GallerySection />
+         <ContactSection />
       </main>
       <Footer />
     </div>
