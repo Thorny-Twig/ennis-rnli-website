@@ -203,20 +203,21 @@ function Hero() {
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1494791368093-85217fbbf8de?w=1400&h=600&fit=crop&auto=format')",
+            "url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1600&fit=crop&auto=format')",
           backgroundSize: "cover",
-          backgroundPosition: "center 40%",
-          opacity: 0.18,
+          backgroundPosition: "center 30%",
+          opacity: 0.35,
         }}
       />
 
       <div className="relative max-w-5xl mx-auto px-4 py-14 sm:py-20 flex flex-col items-center text-center">
         <span
-          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase rounded-full px-4 py-1.5 mb-6"
+          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm"
           style={{
-            backgroundColor: "rgba(224,90,16,0.18)",
+            backgroundColor: "rgba(224,90,16,0.25)",
             color: "#f26a20",
-            border: "1px solid rgba(224,90,16,0.35)",
+            border: "1px solid rgba(224,90,16,0.45)",
+            textShadow: "0 1px 2px rgba(0,0,0,0.5)"
           }}
         >
           <span
@@ -228,7 +229,11 @@ function Hero() {
 
         <h1
           className="text-white text-5xl sm:text-6xl md:text-7xl leading-none mb-5"
-          style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}
+          style={{ 
+            fontFamily: "var(--font-display)", 
+            fontWeight: 800,
+            textShadow: "0 3px 10px rgba(0, 0, 0, 0.75)" 
+          }}
         >
           SAVING LIVES
           <br />
@@ -237,29 +242,44 @@ function Hero() {
           <span style={{ color: "#e05a10" }}>CLOSE TO HOME</span>
         </h1>
 
-        <p className="text-white/75 text-base sm:text-lg max-w-xl mb-8 leading-relaxed">
-          Ennis RNLI Fundraising Branch helps support the RNLI’s 
-          lifesaving work around the Clare and Irish coast. Through our events, 
-          raffles and collections, we raise vital funds to help keep 
-          RNLI lifeboats, crews and lifesaving services ready when they’re needed most.
+        <p 
+          className="text-white/90 text-base sm:text-lg max-w-xl mb-8 leading-relaxed font-medium"
+          style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}
+        >
+          Ennis RNLI Fundraising Branch helps support the RNLI’s lifesaving work 
+          around Co. Clare and the Irish coast. Through our events, raffles and 
+          collections, we raise vital funds to help keep RNLI lifeboats, 
+          crews and lifesaving services ready when they’re needed most.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <a
+          <a
             href="#donate"
-            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
-            style={{ backgroundColor: "#e05a10" }}
+            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+            style={{backgroundColor: "#e05a10"}}
           >
-            <svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5"
+              />
             </svg>
-            Donate to the RNLI
+            Donate to Ennis RNLI
           </a>
           <a
             href="#events"
-            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 backdrop-blur-sm"
             style={{
-              backgroundColor: "transparent",
-              border: "2px solid rgba(255,255,255,0.35)",
+              backgroundColor: "rgba(0,0,0,0.25)",
+              border: "2px solid rgba(255,255,255,0.45)",
             }}
           >
             <svg
@@ -282,10 +302,10 @@ function Hero() {
             href={FACEBOOK_URL}
             target="_blank"
             rel="noopener"
-            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
+            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 backdrop-blur-sm"
             style={{
-              backgroundColor: "transparent",
-              border: "2px solid rgba(255,255,255,0.35)",
+              backgroundColor: "rgba(0,0,0,0.25)",
+              border: "2px solid rgba(255,255,255,0.45)",
             }}
           >
             <svg
