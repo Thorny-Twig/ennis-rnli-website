@@ -1034,7 +1034,7 @@ export default function App() {
         <EventsSection />
         <FacebookBanner />
         <GallerySection />
-         <ContactSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
