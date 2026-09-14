@@ -4,6 +4,7 @@ const RNLI_LOGO =
   "https://rnli.org/-/media/rnli/logos/lifeboats_logo_2025_master.svg?rev=fc7ebec02c044accb002040f620434e6";
 
 const FACEBOOK_URL = "https://www.facebook.com/EnnisRNLI";
+const RNLI_DONATE_URL = "https://rnli.org/support-us/give-money/donate";
 
 const upcomingEvents = [
    {
@@ -254,7 +255,9 @@ function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <a
-            href="#donate"
+            href={RNLI_DONATE_URL}
+            target="_blank"
+            rel="noopener"
             className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5 backdrop-blur-sm"
             style={{backgroundColor: "#e05a10"}}
           >
@@ -265,27 +268,10 @@ function Hero() {
               strokeWidth={2}
               stroke="currentColor"
               className="w-5 h-5 shrink-0"
-            >
-              {/* Heart */}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 6.5C10.8 4.4 7.8 3.5 6 5.4c-1.8 1.9-1.4 4.7.4 6.3L12 17l5.6-5.3c1.8-1.6 2.2-4.4.4-6.3-1.8-1.9-4.8-1-6 1.1Z"
-              />
-
-              {/* Hand */}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.5 12.5 7 9.8c.7-.5 1.6-.4 2.2.2l2.1 2.1c.5.5 1.3.5 1.8 0l1.1-1.1c.6-.6 1.5-.6 2.1 0l3.3 3.1c.7.7.7 1.8-.1 2.4l-3.8 3.1c-.8.6-1.7.9-2.7.9H7.5c-1.1 0-2.2-.5-2.9-1.4L3.5 17v-4.5Z"
-              />
-
-              {/* Wrist */}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.5 12.5H2.8a1 1 0 0 0-1 1v3.8a1 1 0 0 0 1 1h1.7"
-              />
+            > 
+              {/* License: CC Attribution. Made by boxicons: https://github.com/atisawd/boxicons */}
+              {/* Heart in Hand */}
+              <path d="M4 21h9.62a3.995 3.995 0 0 0 3.037-1.397l5.102-5.952a1 1 0 0 0-.442-1.6l-1.968-.656a3.043 3.043 0 0 0-2.823.503l-3.185 2.547-.617-1.235A3.98 3.98 0 0 0 9.146 11H4c-1.103 0-2 .897-2 2v6c0 1.103.897 2 2 2zm0-8h5.146c.763 0 1.448.423 1.789 1.105l.447.895H7v2h6.014a.996.996 0 0 0 .442-.11l.003-.001.004-.002h.003l.002-.001h.004l.001-.001c.009.003.003-.001.003-.001.01 0 .002-.001.002-.001h.001l.002-.001.003-.001.002-.001.002-.001.003-.001.002-.001c.003 0 .001-.001.002-.001l.003-.002.002-.001.002-.001.003-.001.002-.001h.001l.002-.001h.001l.002-.001.002-.001c.009-.001.003-.001.003-.001l.002-.001a.915.915 0 0 0 .11-.078l4.146-3.317c.262-.208.623-.273.94-.167l.557.186-4.133 4.823a2.029 2.029 0 0 1-1.52.688H4v-6zM16 2h-.017c-.163.002-1.006.039-1.983.705-.951-.648-1.774-.7-1.968-.704L12.002 2h-.004c-.801 0-1.555.313-2.119.878C9.313 3.445 9 4.198 9 5s.313 1.555.861 2.104l3.414 3.586a1.006 1.006 0 0 0 1.45-.001l3.396-3.568C18.688 6.555 19 5.802 19 5s-.313-1.555-.878-2.121A2.978 2.978 0 0 0 16.002 2H16zm1 3c0 .267-.104.518-.311.725L14 8.55l-2.707-2.843C11.104 5.518 11 5.267 11 5s.104-.518.294-.708A.977.977 0 0 1 11.979 4c.025.001.502.032 1.067.485.081.065.163.139.247.222l.707.707.707-.707c.084-.083.166-.157.247-.222.529-.425.976-.478 1.052-.484a.987.987 0 0 1 .701.292c.189.189.293.44.293.707z"/>
             </svg>
             Donate to Ennis RNLI
           </a>
