@@ -682,8 +682,6 @@ function GallerySection() {
   );
 }
 
-// ── ContactSection ────────────────────────────────────────────────────────────
-
 function ContactSection() {
   const [values, setValues] = useState({ fullName: "", queryType: "", phone: "", email: "", message: "" });
   const [touched, setTouched] = useState<TouchedMap>({ fullName: false, queryType: false, phone: false, email: false, message: false });
