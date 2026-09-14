@@ -87,7 +87,7 @@ function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-6">
-          {["Events", "Gallery","Facebook"].map((item) =>
+          {["Events", "Gallery", "Facebook"].map((item) =>
             item === "Facebook" ? (
               <a
                 key={item}
