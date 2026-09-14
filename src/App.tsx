@@ -87,7 +87,7 @@ function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-6">
-          {["Events", "Gallery", "Facebook"].map((item) =>
+          {["Events", "Gallery","Facebook"].map((item) =>
             item === "Facebook" ? (
               <a
                 key={item}
@@ -169,13 +169,6 @@ function Header() {
             className="text-white/85 py-2 border-b border-white/10 text-sm font-medium"
           >
             Gallery
-          </a>
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="text-white/85 py-2 border-b border-white/10 text-sm font-medium"
-          >
-            Contact
           </a>
           <a
             href={FACEBOOK_URL}
