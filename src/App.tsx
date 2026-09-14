@@ -239,16 +239,28 @@ function Hero() {
 
         <p className="text-white/75 text-base sm:text-lg max-w-xl mb-8 leading-relaxed">
           Ennis RNLI Fundraising Branch helps support the RNLI’s 
-          lifesaving work around the Irish coast. Through our events, 
+          lifesaving work around the Clare and Irish coast. Through our events, 
           raffles and collections, we raise vital funds to help keep 
           RNLI lifeboats, crews and lifesaving services ready when they’re needed most.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            <a
+            href="#donate"
+            className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
+            style={{ backgroundColor: "#e05a10" }}
+          >
+            <svg>
+            </svg>
+            Donate to the RNLI
+          </a>
           <a
             href="#events"
             className="flex items-center justify-center gap-2 text-white text-sm font-bold px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
-            style={{ backgroundColor: "#e05a10" }}
+            style={{
+              backgroundColor: "transparent",
+              border: "2px solid rgba(255,255,255,0.35)",
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
