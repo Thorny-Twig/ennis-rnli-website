@@ -682,64 +682,7 @@ function GallerySection() {
   );
 }
 
-
-
-function Footer() {
-  const currentYear = new Date().getFullYear();
-  return (
-    <footer
-      className="py-8"
-      style={{ backgroundColor: "#001f4a", borderTop: "4px solid #e05a10" }}
-    >
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="bg-white rounded px-2 py-1">
-              <img src={RNLI_LOGO} alt="RNLI" className="h-6 w-auto" />
-            </div>
-            <div>
-              <p
-                className="text-white text-sm leading-none"
-                style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
-              >
-                ENNIS RNLI
-              </p>
-              <p className="text-white/45 text-xs mt-0.5">
-                Fundraising Branch
-              </p>
-            </div>
-          </div>
-
-          <a
-            href={FACEBOOK_URL}
-            target="_blank"
-            rel="noopener"
-            className="flex items-center gap-2 text-white text-xs font-bold px-4 py-2 rounded-full transition-all hover:-translate-y-0.5"
-            style={{ backgroundColor: "#0866ff" }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-3.5 h-3.5"
-            >
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
-            Follow Us on Facebook
-          </a>
-        </div>
-
-        <div
-          className="mt-6 pt-6 text-center text-white/35 text-xs"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-        >
-          Ennis RNLI Fundraising Branch © {currentYear} · Supporting the Royal National
-          Lifeboat Institution
-        </div>
-      </div>
-    </footer>
-  );
-}
+// ── ContactSection ────────────────────────────────────────────────────────────
 
 function ContactSection() {
   const [values, setValues] = useState({ fullName: "", queryType: "", phone: "", email: "", message: "" });
@@ -1024,6 +967,63 @@ function ContactSection() {
   );
 }
 
+function Footer() {
+  const currentYear = new Date().getFullYear();
+  return (
+    <footer
+      className="py-8"
+      style={{ backgroundColor: "#001f4a", borderTop: "4px solid #e05a10" }}
+    >
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="bg-white rounded px-2 py-1">
+              <img src={RNLI_LOGO} alt="RNLI" className="h-6 w-auto" />
+            </div>
+            <div>
+              <p
+                className="text-white text-sm leading-none"
+                style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
+              >
+                ENNIS RNLI
+              </p>
+              <p className="text-white/45 text-xs mt-0.5">
+                Fundraising Branch
+              </p>
+            </div>
+          </div>
+
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noopener"
+            className="flex items-center gap-2 text-white text-xs font-bold px-4 py-2 rounded-full transition-all hover:-translate-y-0.5"
+            style={{ backgroundColor: "#0866ff" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-3.5 h-3.5"
+            >
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+            Follow Us on Facebook
+          </a>
+        </div>
+
+        <div
+          className="mt-6 pt-6 text-center text-white/35 text-xs"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
+        >
+          Ennis RNLI Fundraising Branch © {currentYear} · Supporting the Royal National
+          Lifeboat Institution
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -1034,7 +1034,6 @@ export default function App() {
         <EventsSection />
         <FacebookBanner />
         <GallerySection />
-        <ContactSection />
       </main>
       <Footer />
     </div>
